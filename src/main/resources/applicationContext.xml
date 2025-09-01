@@ -5,7 +5,24 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Define a bean for HelloWorld -->
+    <!--<bean id="helloWorld" class="com.trainibit.example.HelloWorld">
+        <property name="message" value="Hello, from XML!"/>
+    </bean>-->
+
+    <bean id="user" class="com.trainibit.example.User">
+        <property name="name" value="Luis"/>
+        <property name="lastName" value="Piedras"/>
+        <property name="birthDate">
+            <bean class="java.util.Date">
+                <constructor-arg value="2002/10/17"/>
+            </bean>
+        </property>
+    </bean>
+
     <bean id="helloWorld" class="com.trainibit.example.HelloWorld">
         <property name="message" value="Hello, from XML!"/>
+        <property name="user" ref="user"/>
     </bean>
+
+
 </beans>
